@@ -2,7 +2,7 @@ program SimpleDataSnap;
 
 uses
   Vcl.Forms,
-  Main in 'Main.pas' {fSimpleDataSnap},
+  Main in 'Main.pas' {fMain},
   Rules in 'Rules.pas' {dmRules: TDataModule},
   ServerMethodsExample in 'ServerMethodsExample.pas';
 
@@ -11,7 +11,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfSimpleDataSnap, fSimpleDataSnap);
+  Application.CreateForm(TfMain, fMain);
   Application.CreateForm(TdmRules, dmRules);
   Application.Run;
 end.

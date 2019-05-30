@@ -4,7 +4,7 @@ object dmRules: TdmRules
   Width = 436
   object DSServer1: TDSServer
     AutoStart = False
-    Left = 224
+    Left = 192
     Top = 40
   end
   object DSHTTPService1: TDSHTTPService
@@ -15,15 +15,16 @@ object dmRules: TdmRules
     Top = 112
   end
   object DSAuthenticationManager1: TDSAuthenticationManager
+    OnUserAuthenticate = DSAuthenticationManager1UserAuthenticate
     Roles = <>
-    Left = 225
-    Top = 193
+    Left = 201
+    Top = 201
   end
   object DSServerClass1: TDSServerClass
     OnGetClass = DSServerClass1GetClass
     Server = DSServer1
     LifeCycle = 'Invocation'
-    Left = 360
+    Left = 336
     Top = 120
   end
 end

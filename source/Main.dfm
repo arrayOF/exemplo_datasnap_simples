@@ -1,4 +1,4 @@
-object fSimpleDataSnap: TfSimpleDataSnap
+object fMain: TfMain
   Left = 0
   Top = 0
   Caption = 'Exemplo Simples de DataSnap'
@@ -23,9 +23,25 @@ object fSimpleDataSnap: TfSimpleDataSnap
     Action = aAtivar
     TabOrder = 0
   end
+  object Memo1: TMemo
+    Left = 8
+    Top = 80
+    Width = 611
+    Height = 308
+    Color = clGreen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clLime
+    Font.Height = -19
+    Font.Name = 'Source Sans Pro'
+    Font.Style = []
+    Lines.Strings = (
+      'Memo1')
+    ParentFont = False
+    TabOrder = 1
+  end
   object ActionList1: TActionList
-    Left = 512
-    Top = 56
+    Left = 560
+    Top = 16
     object aAtivar: TAction
       Caption = 'ATIVAR'
       OnExecute = aAtivarExecute

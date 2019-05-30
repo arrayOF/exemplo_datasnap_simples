@@ -14,6 +14,9 @@ type
     DSServerClass1: TDSServerClass;
     procedure DSServerClass1GetClass(DSServerClass: TDSServerClass;
       var PersistentClass: TPersistentClass);
+    procedure DSAuthenticationManager1UserAuthenticate(Sender: TObject;
+      const Protocol, Context, User, Password: string; var valid: Boolean;
+      UserRoles: TStrings);
   private
     { Private declarations }
   public
@@ -30,6 +33,13 @@ implementation
 uses ServerMethodsExample;
 
 {$R *.dfm}
+
+procedure TdmRules.DSAuthenticationManager1UserAuthenticate(Sender: TObject;
+  const Protocol, Context, User, Password: string; var valid: Boolean;
+  UserRoles: TStrings);
+begin
+   valid := (User = 'admin') and (Password = 'admin');
+end;
 
 procedure TdmRules.DSServerClass1GetClass(DSServerClass: TDSServerClass;
   var PersistentClass: TPersistentClass);

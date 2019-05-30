@@ -34,6 +34,27 @@ Da paleta `Datasnap Server` utilizamos os seguintes componentes:
 
 ---
 
+## Sobre a autenticação do usuário
+
+A autenticação do usuário se dará pelo _Basic Scheme_.
+
+Quem resolve esta questão no Datasnap é o componente `TDSAuthenticationManager` através do método `UserAuthenticate`.
+
+Um exemplo didático:
+
+```pascal
+procedure TdmRules.DSAuthenticationManager1UserAuthenticate(Sender: TObject;
+  const Protocol, Context, User, Password: string; var valid: Boolean;
+  UserRoles: TStrings);
+begin
+   valid := (User = 'admin') and (Password = 'admin');
+end;
+```
+
+
+
+---
+
 ## Consumindo o servidor pelo Postman
 
 
@@ -52,3 +73,4 @@ Da paleta `Datasnap Server` utilizamos os seguintes componentes:
 
 
 
+![](./assets/exemplo_post.PNG)

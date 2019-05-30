@@ -8,10 +8,11 @@ uses
   Vcl.StdCtrls;
 
 type
-  TfSimpleDataSnap = class(TForm)
+  TfMain = class(TForm)
     Button1: TButton;
     ActionList1: TActionList;
     aAtivar: TAction;
+    Memo1: TMemo;
     procedure aAtivarExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -21,7 +22,7 @@ type
   end;
 
 var
-  fSimpleDataSnap: TfSimpleDataSnap;
+  fMain: TfMain;
 
 implementation
 
@@ -29,14 +30,14 @@ implementation
 
 uses Rules;
 
-procedure TfSimpleDataSnap.aAtivarExecute(Sender: TObject);
+procedure TfMain.aAtivarExecute(Sender: TObject);
 begin
   dmRules.DSServer1.Start;
   Self.aAtivar.Enabled := False;
   Application.ProcessMessages;
 end;
 
-procedure TfSimpleDataSnap.FormCreate(Sender: TObject);
+procedure TfMain.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 end;
