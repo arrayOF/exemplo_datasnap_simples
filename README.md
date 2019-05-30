@@ -18,7 +18,7 @@ Foi desenvolvido no formato _stand alone_ para simplificar o entendimento.
 
 ## Montagem do servidor DataSnap RESTful
 
-![Paleta DataSnap](E:\exemplo_datasnap_simples\assets\paleta.PNG)
+![Paleta DataSnap](./assets/paleta.PNG)
 
 
 
