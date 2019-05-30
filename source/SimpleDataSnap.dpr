@@ -3,7 +3,8 @@ program SimpleDataSnap;
 uses
   Vcl.Forms,
   Main in 'Main.pas' {fSimpleDataSnap},
-  Rules in 'Rules.pas' {dmRules: TDataModule};
+  Rules in 'Rules.pas' {dmRules: TDataModule},
+  ServerMethodsExample in 'ServerMethodsExample.pas';
 
 {$R *.res}
 
