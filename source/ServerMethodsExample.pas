@@ -3,7 +3,7 @@ unit ServerMethodsExample;
 interface
 
 uses
-  System.Classes, System.JSON;
+  System.Classes, System.JSON, Datasnap.DSAuth;
 
 type
 
@@ -11,7 +11,11 @@ type
 
   TExemploClass = class(TComponent)
   public
+    [TRoleAuth('Publico')]
+    function ChamadaPublica(const AMessage: string): TJSONObject;
+    [TRoleAuth('Restrito')]
     function Exemplo: TJSONObject;
+    [TRoleAuth('Restrito')]
     function UpdateExemplo(ABody: TJSONObject): TJSONObject;
   end;
 
@@ -22,6 +26,12 @@ implementation
 { TExemploClass }
 
 uses Main;
+
+function TExemploClass.ChamadaPublica(const AMessage: string): TJSONObject;
+begin
+  Result := TJSONObject.Create;
+  Result.AddPair('msg', AMessage);
+end;
 
 function TExemploClass.Exemplo: TJSONObject;
 begin

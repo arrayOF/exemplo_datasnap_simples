@@ -3,8 +3,13 @@ unit Rules;
 interface
 
 uses
-  System.SysUtils, System.Classes, IPPeerServer, Datasnap.DSAuth,
-  Datasnap.DSCommonServer, Datasnap.DSHTTP, Datasnap.DSServer;
+  System.SysUtils,
+  System.Classes,
+  IPPeerServer,
+  Datasnap.DSAuth,
+  Datasnap.DSCommonServer,
+  Datasnap.DSHTTP,
+  Datasnap.DSServer;
 
 type
   TdmRules = class(TDataModule)
@@ -12,11 +17,8 @@ type
     DSHTTPService1: TDSHTTPService;
     DSAuthenticationManager1: TDSAuthenticationManager;
     DSServerClass1: TDSServerClass;
-    procedure DSServerClass1GetClass(DSServerClass: TDSServerClass;
-      var PersistentClass: TPersistentClass);
-    procedure DSAuthenticationManager1UserAuthenticate(Sender: TObject;
-      const Protocol, Context, User, Password: string; var valid: Boolean;
-      UserRoles: TStrings);
+    procedure DSServerClass1GetClass(DSServerClass: TDSServerClass; var PersistentClass: TPersistentClass);
+    procedure DSAuthenticationManager1UserAuthenticate(Sender: TObject; const Protocol, Context, User, Password: string; var valid: Boolean; UserRoles: TStrings);
   private
     { Private declarations }
   public
@@ -34,15 +36,18 @@ uses ServerMethodsExample;
 
 {$R *.dfm}
 
-procedure TdmRules.DSAuthenticationManager1UserAuthenticate(Sender: TObject;
-  const Protocol, Context, User, Password: string; var valid: Boolean;
-  UserRoles: TStrings);
+procedure TdmRules.DSAuthenticationManager1UserAuthenticate(Sender: TObject; const Protocol, Context, User, Password: string; var valid: Boolean; UserRoles: TStrings);
 begin
-   valid := (User = 'admin') and (Password = 'admin');
+  valid := (User = 'admin') and (Password = 'admin');
+
+  if not valid then
+  begin
+    valid := True;
+    UserRoles.Add('Publico');
+  end;
 end;
 
-procedure TdmRules.DSServerClass1GetClass(DSServerClass: TDSServerClass;
-  var PersistentClass: TPersistentClass);
+procedure TdmRules.DSServerClass1GetClass(DSServerClass: TDSServerClass; var PersistentClass: TPersistentClass);
 begin
   PersistentClass := TExemploClass;
 end;
