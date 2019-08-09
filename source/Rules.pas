@@ -40,8 +40,10 @@ procedure TdmRules.DSAuthenticationManager1UserAuthenticate(Sender: TObject; con
 begin
   valid := (User = 'admin') and (Password = 'admin');
 
-  if not valid then
+  if valid then
   begin
+    UserRoles.Add('Restrito');
+  end else begin
     valid := True;
     UserRoles.Add('Publico');
   end;
