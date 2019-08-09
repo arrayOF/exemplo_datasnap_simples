@@ -43,6 +43,7 @@ begin
   if valid then
   begin
     UserRoles.Add('Restrito');
+    UserRoles.Add('Publico');
   end else begin
     valid := True;
     UserRoles.Add('Publico');
